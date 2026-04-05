@@ -1,0 +1,68 @@
+[
+  {
+    "product_name": "AORUS MASTER 16 BZH",
+    "specs": {
+      "OS": "Windows 11 Pro (GIGABYTE recommends Windows 11 Pro for business.)\nWindows 11 Home\nUEFI Shell OS",
+      "CPU": "Intel® Core™ Ultra 9 Processor 275HX (36MB cache, up to 5.4 GHz, 24 cores, 24 threads)",
+      "Video Graphics": "NVIDIA® GeForce RTX™ 5090 Laptop GPU\n24GB GDDR7\n175W Maximum Graphics Power with Dynamic Boost*\nAI Boost : 1797 MHz (1597 MHz Boost Clock + 200 MHz OC)*\n*May vary by scenario",
+      "Display": "16\" 16:10\nOLED WQXGA (2560×1600) 240Hz, 1ms, DCIP-3 100%, 500nits (peak), 1,000,000:1\nNVIDIA® G-SYNC®\nNVIDIA® Advanced Optimus\nVESA DisplayHDR True Black 500\nVESA ClearMR 10000\nPantone® Validated\nTÜV Rheinland Low Blue Light\nDolby Vision®",
+      "System Memory": "Up to 64GB DDR5 5600MHz\n* 2x SO-DIMM sockets for expansion",
+      "Storage": "1x PCIe Gen5 M.2 slot\n1x PCIe Gen4x4 M.2 slots\nUp to 4TB PCIe NVMe™ M.2 SSD\n*The storage capacity may differ by country and region. Please contact your local dealers or retailers for the latest product information.\n**If there is any abnormality that cannot be attributed to Gigabyte/AORUS during the warranty period, it is not covered by the warranty. More info:\nhttps://member.aorus.com/global/productwarranty",
+      "Keyboard Type": "3-zone RGB Backlit Keyboard, Up to 1.7mm Key-travel (Support N-Key)",
+      "I/O Port": "Left Side:\n1 x DC in\n1 x RJ-45\n1 x HDMI 2.1\n1 x Type-A support USB3.2 Gen2\n1 x Type-C with Thunderbolt™5 (support USB4, DisplayPort™ 2.1 and Power Delivery 3.0)\nRight Side:\n1 x Type-A support USB3.2 Gen2\n1 x Type-C with Thunderbolt™4 (support USB4, DisplayPort™ 1.4 and Power Delivery 3.0)\n1 x MicroSD (UHS-II)\n1 x Audio Jack support mic / headphone combo",
+      "Audio": "4x 2W speakers\nMicrophone\nDolby Atmos®\nSmart Amp Technology",
+      "Communications": "WIFI 7 (802.11be 2x2)\nLAN: 1G\nBluetooth v5.4",
+      "Webcam": "FHD (1080p) IR Webcam\nBuild-in array Microphone\nSupport Windows Hello Face Authentication",
+      "Security": "Firmware-based TPM, supports Intel® Platform Trust Technology (Intel® PTT)",
+      "Battery": "Li Polymer 99Wh",
+      "Adapter": "330W AC Adapter",
+      "Dimensions (W x D x H)": "357 x 254 x 23~29.9 mm\n*The dimensions of the laptop may vary according to the configuration, manufacturing process and measurement method, please refer to the actual situation.",
+      "Weight": "~2.5 kg\n*The weight of the laptop may vary according to the configuration, manufacturing process and measurement method, please refer to the actual situation.",
+      "Color": "Dark Tide"
+    }
+  },
+  {
+    "product_name": "AORUS MASTER 16 BYH",
+    "specs": {
+      "OS": "Windows 11 Pro (GIGABYTE recommends Windows 11 Pro for business.)\nWindows 11 Home\nUEFI Shell OS",
+      "CPU": "Intel® Core™ Ultra 9 Processor 275HX (36MB cache, up to 5.4 GHz, 24 cores, 24 threads)",
+      "Video Graphics": "NVIDIA® GeForce RTX™ 5080 Laptop GPU\n16GB GDDR7\n175W Maximum Graphics Power with Dynamic Boost*\nAI Boost : 1902 MHz (1702 MHz Boost Clock + 200 MHz OC)*\n*May vary by scenario",
+      "Display": "16\" 16:10\nOLED WQXGA (2560×1600) 240Hz, 1ms, DCIP-3 100%, 500nits (peak), 1,000,000:1\nNVIDIA® G-SYNC®\nNVIDIA® Advanced Optimus\nVESA DisplayHDR True Black 500\nVESA ClearMR 10000\nPantone® Validated\nTÜV Rheinland Low Blue Light\nDolby Vision®",
+      "System Memory": "Up to 64GB DDR5 5600MHz\n* 2x SO-DIMM sockets for expansion",
+      "Storage": "1x PCIe Gen5 M.2 slot\n1x PCIe Gen4x4 M.2 slots\nUp to 4TB PCIe NVMe™ M.2 SSD\n*The storage capacity may differ by country and region. Please contact your local dealers or retailers for the latest product information.\n**If there is any abnormality that cannot be attributed to Gigabyte/AORUS during the warranty period, it is not covered by the warranty. More info:\nhttps://member.aorus.com/global/productwarranty",
+      "Keyboard Type": "3-zone RGB Backlit Keyboard, Up to 1.7mm Key-travel (Support N-Key)",
+      "I/O Port": "Left Side:\n1 x DC in\n1 x RJ-45\n1 x HDMI 2.1\n1 x Type-A support USB3.2 Gen2\n1 x Type-C with Thunderbolt™5 (support USB4, DisplayPort™ 2.1 and Power Delivery 3.0)\nRight Side:\n1 x Type-A support USB3.2 Gen2\n1 x Type-C with Thunderbolt™4 (support USB4, DisplayPort™ 1.4 and Power Delivery 3.0)\n1 x MicroSD (UHS-II)\n1 x Audio Jack support mic / headphone combo",
+      "Audio": "4x 2W speakers\nMicrophone\nDolby Atmos®\nSmart Amp Technology",
+      "Communications": "WIFI 7 (802.11be 2x2)\nLAN: 1G\nBluetooth v5.4",
+      "Webcam": "FHD (1080p) IR Webcam\nBuild-in array Microphone\nSupport Windows Hello Face Authentication",
+      "Security": "Firmware-based TPM, supports Intel® Platform Trust Technology (Intel® PTT)",
+      "Battery": "Li Polymer 99Wh",
+      "Adapter": "330W AC Adapter",
+      "Dimensions (W x D x H)": "357 x 254 x 23~29.9 mm\n*The dimensions of the laptop may vary according to the configuration, manufacturing process and measurement method, please refer to the actual situation.",
+      "Weight": "~2.5 kg\n*The weight of the laptop may vary according to the configuration, manufacturing process and measurement method, please refer to the actual situation.",
+      "Color": "Dark Tide"
+    }
+  },
+  {
+    "product_name": "AORUS MASTER 16 BXH",
+    "specs": {
+      "OS": "Windows 11 Pro (GIGABYTE recommends Windows 11 Pro for business.)\nWindows 11 Home\nUEFI Shell OS",
+      "CPU": "Intel® Core™ Ultra 9 Processor 275HX (36MB cache, up to 5.4 GHz, 24 cores, 24 threads)",
+      "Video Graphics": "NVIDIA® GeForce RTX™ 5070 Ti Laptop GPU\n12GB GDDR7\n140W Maximum Graphics Power with Dynamic Boost*\nAI Boost : 1962 MHz (1762 MHz Boost Clock + 200 MHz OC)*\n*May vary by scenario",
+      "Display": "16\" 16:10\nOLED WQXGA (2560×1600) 240Hz, 1ms, DCIP-3 100%, 500nits (peak), 1,000,000:1\nNVIDIA® G-SYNC®\nNVIDIA® Advanced Optimus\nVESA DisplayHDR True Black 500\nVESA ClearMR 10000\nPantone® Validated\nTÜV Rheinland Low Blue Light\nDolby Vision®",
+      "System Memory": "Up to 64GB DDR5 5600MHz\n* 2x SO-DIMM sockets for expansion",
+      "Storage": "1x PCIe Gen5 M.2 slot\n1x PCIe Gen4x4 M.2 slots\nUp to 4TB PCIe NVMe™ M.2 SSD\n*The storage capacity may differ by country and region. Please contact your local dealers or retailers for the latest product information.\n**If there is any abnormality that cannot be attributed to Gigabyte/AORUS during the warranty period, it is not covered by the warranty. More info:\nhttps://member.aorus.com/global/productwarranty",
+      "Keyboard Type": "3-zone RGB Backlit Keyboard, Up to 1.7mm Key-travel (Support N-Key)",
+      "I/O Port": "Left Side:\n1 x DC in\n1 x RJ-45\n1 x HDMI 2.1\n1 x Type-A support USB3.2 Gen2\n1 x Type-C with Thunderbolt™5 (support USB4, DisplayPort™ 2.1 and Power Delivery 3.0)\nRight Side:\n1 x Type-A support USB3.2 Gen2\n1 x Type-C with Thunderbolt™4 (support USB4, DisplayPort™ 1.4 and Power Delivery 3.0)\n1 x MicroSD (UHS-II)\n1 x Audio Jack support mic / headphone combo",
+      "Audio": "4x 2W speakers\nMicrophone\nDolby Atmos®\nSmart Amp Technology",
+      "Communications": "WIFI 7 (802.11be 2x2)\nLAN: 1G\nBluetooth v5.4",
+      "Webcam": "FHD (1080p) IR Webcam\nBuild-in array Microphone\nSupport Windows Hello Face Authentication",
+      "Security": "Firmware-based TPM, supports Intel® Platform Trust Technology (Intel® PTT)",
+      "Battery": "Li Polymer 99Wh",
+      "Adapter": "330W AC Adapter",
+      "Dimensions (W x D x H)": "357 x 254 x 23~29.9 mm\n*The dimensions of the laptop may vary according to the configuration, manufacturing process and measurement method, please refer to the actual situation.",
+      "Weight": "~2.5 kg\n*The weight of the laptop may vary according to the configuration, manufacturing process and measurement method, please refer to the actual situation.",
+      "Color": "Dark Tide"
+    }
+  }
+]
