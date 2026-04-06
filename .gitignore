@@ -12,3 +12,9 @@ data/specs.db
 
 #Raw scraped html
 data/view-source_*.html
+
+#model
+models/
+
+#llama.cpp
+llama.cpp/

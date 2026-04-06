@@ -7,15 +7,13 @@ import faiss
 import numpy as np
 from sentence_transformers import SentenceTransformer
 
+from app.llm_generator import stream_answer
+
 
 FAISS_INDEX_PATH = "data/faiss.index"
 SQLITE_DB_PATH = "data/specs.db"
 EMBEDDING_MODEL_NAME = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
 
-
-model_encoder = SentenceTransformer(EMBEDDING_MODEL_NAME)
-faiss_index = faiss.read_index(FAISS_INDEX_PATH)
-conn = sqlite3.connect(SQLITE_DB_PATH)
 
 SPEC_QUERY_MAP = {
     "cpu": "cpu",
@@ -113,18 +111,28 @@ SPEC_QUERY_MAP = {
 }
 
 
+# 全域只載入一次模型與索引
+print("[INIT] start loading sentence transformer...")
+model_encoder = SentenceTransformer(EMBEDDING_MODEL_NAME)
+print("[INIT] sentence transformer loaded")
+
+print("[INIT] start loading faiss index...")
+faiss_index = faiss.read_index(FAISS_INDEX_PATH)
+print("[INIT] faiss index loaded")
+
+def get_connection() -> sqlite3.Connection:
+    return sqlite3.connect(SQLITE_DB_PATH)
+
+
 def normalize_text(text: str) -> str:
     return re.sub(r"\s+", " ", text.strip().lower())
 
 
 def extract_model_from_query(query: str) -> Optional[str]:
-    """
-    抓像 BXH / BYH / BZH 這種型號尾碼
-    """
-    m = re.search(r"\b([A-Z]{3,4})\b", query)
+    m = re.search(r"\b([A-Z]{3,4})\b", query.upper())
     if m:
         token = m.group(1).upper()
-        if token not in {"CPU", "GPU", "SSD", "RAM", "OS", "LAN"}:
+        if token not in {"CPU", "GPU", "SSD", "RAM", "OS", "LAN", "WIFI", "USB", "HDMI"}:
             return token
     return None
 
@@ -134,7 +142,7 @@ def extract_spec_category(query: str) -> Optional[str]:
     matches = []
 
     for key, value in SPEC_QUERY_MAP.items():
-        if key in q:
+        if normalize_text(key) in q:
             matches.append((len(key), value))
 
     if not matches:
@@ -190,6 +198,25 @@ def load_candidate_rows(
     return [row_to_doc(row) for row in rows]
 
 
+def build_context(results: List[Tuple[float, Dict[str, Any]]]) -> str:
+    chunks = []
+
+    for rank, (score, doc) in enumerate(results, start=1):
+        chunk = (
+            f"[Top {rank} | score={score:.4f}]\n"
+            f"Product Name: {doc['product_name']}\n"
+            f"Series: {doc['series']}\n"
+            f"Model: {doc['model']}\n"
+            f"Spec Category: {doc['spec_category']}\n"
+            f"Spec Key EN: {doc['spec_key_en']}\n"
+            f"Spec Key ZH: {doc['spec_key_zh']}\n"
+            f"Value: {doc['value_raw']}\n"
+        )
+        chunks.append(chunk)
+
+    return "\n" + ("-" * 80 + "\n").join(chunks)
+
+
 def search_with_faiss_subset(
     model_encoder: SentenceTransformer,
     faiss_index: faiss.Index,
@@ -197,6 +224,7 @@ def search_with_faiss_subset(
     query: str,
     top_k: int = 5
 ) -> List[Tuple[float, Dict[str, Any]]]:
+    print('searching docs')
     detected_model = extract_model_from_query(query)
     detected_spec = extract_spec_category(query)
 
@@ -221,12 +249,15 @@ def search_with_faiss_subset(
 
     total_count = conn.execute("SELECT COUNT(*) FROM documents").fetchone()[0]
 
-    # 如果候選就是整個資料庫，直接用 FAISS
+    # 候選等於全資料庫時，直接用 FAISS 搜
     if len(candidates) == total_count:
         scores, indices = faiss_index.search(query_vec, top_k)
         results = []
 
         for score, idx in zip(scores[0], indices[0]):
+            if idx == -1:
+                continue
+
             row = conn.execute("""
                 SELECT row_id, doc_id, product_name, series, model,
                        spec_key_en, spec_key_zh, spec_category,
@@ -258,10 +289,11 @@ def search_with_faiss_subset(
 
 
 def answer_query(query: str, top_k: int = 3) -> None:
-    model_encoder = model_encoder
-    faiss_index = faiss_index
-    conn = conn
+    print("[ANSWER] answer_query entered")
+    conn = get_connection()
+
     try:
+        print("[RAG] before retrieval")
         results = search_with_faiss_subset(
             model_encoder=model_encoder,
             faiss_index=faiss_index,
@@ -269,6 +301,7 @@ def answer_query(query: str, top_k: int = 3) -> None:
             query=query,
             top_k=top_k
         )
+        print("[RAG] retrieval done")
 
         print("=" * 100)
         print(f"Query: {query}")
@@ -281,17 +314,30 @@ def answer_query(query: str, top_k: int = 3) -> None:
         for rank, (score, doc) in enumerate(results, start=1):
             print(f"[Top {rank}] score={score:.4f}")
             print(f"Product   : {doc['product_name']}")
+            print(f"Model     : {doc['model']}")
             print(f"Spec EN   : {doc['spec_key_en']}")
             print(f"Spec ZH   : {doc['spec_key_zh']}")
             print("Value:")
             print(doc["value_raw"])
             print("-" * 100)
 
+        context = build_context(results)
+
+        print("Answer:")
+        print("[RAG] before generation")
+        answer, metrics = stream_answer(query, context)
+        
+
+        print("\n")
+        print("TTFT:", metrics["ttft"])
+        print("TPS:", metrics["tps"])
+
     finally:
         conn.close()
 
 
 if __name__ == "__main__":
+    print("[MAIN] script started")
     test_queries = [
         "AORUS MASTER 16 BXH 的 CPU 是什麼？",
         "BXH 的顯卡是什麼？",
