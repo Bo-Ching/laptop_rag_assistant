@@ -7,8 +7,8 @@ __pycache__/
 #RAG generated artifacts
 data/vector_docs.json
 data/vectors.npy
-data/faiss.index
-data/specs.db
+# data/faiss.index
+# data/specs.db
 
 #Raw scraped html
 data/view-source_*.html
